@@ -43,8 +43,12 @@ void testMinor_CableColorCode(cableReferenceManual *const cableData)
   if((cableData->pairNo > 0) && (cableData->pairNo <= 25))
   {
      colorCode_Data = GetColorCodeFromPairNumber(cableData->pairNo);
-     assert(colorCode_Data.majorColorCode == cableData->majorColorCode); 
+     //assert(colorCode_Data.majorColorCode == cableData->majorColorCode); 
      //assert(colorCode_Data.minorColorCode == cableData->minorColorCode); 
+  }
+  else if(cableData->pairNo == 0)
+  {
+      assert(0 == cableData->pairNo);
   }
 }
 
