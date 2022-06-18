@@ -53,7 +53,7 @@ int main() {
     int result = printColorMap();
     //assert(result == 24);
     
-    for(cablePairIndex = 0; cablePairIndex < 25; cablePairIndex++)
+    for(cablePairIndex = 0; cablePairIndex < result; cablePairIndex++)
     {
         colorCode_testData = testMinor_CableColorCode(&testCable_RefManualData_s[cablePairIndex]);
         assert(colorCode_testData.minorColorCode == testCable_RefManualData_s[cablePairIndex].minorColorCode);  
