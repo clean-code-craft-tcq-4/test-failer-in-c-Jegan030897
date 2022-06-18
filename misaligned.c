@@ -5,6 +5,9 @@
 const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
 const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
 
+int numberOfMajorColors = sizeof(MajorColorNames) / sizeof(MajorColorNames[0]);
+int numberOfMinorColors = sizeof(MinorColorNames) / sizeof(MinorColorNames[0]);
+
 cableReferenceManual testCable_RefManualData_s[25];
 
 int printColorMap() {
@@ -37,11 +40,11 @@ void testCableColorCode(cableReferenceManual *const cabelData)
 {
   cableReferenceManual colorCode_Data;
     
-  if((cabelData[cablePairIndex]->pairNo > 0) && (cabelData[cablePairIndex]->pairNo <= 25))
+  if((cabelData->pairNo > 0) && (cabelData->pairNo <= 25))
   {
-     colorCode_Data = GetColorCodeFromPairNumber(cabelData[cablePairIndex]->pairNo);
+     colorCode_Data = GetColorCodeFromPairNumber(cabelData->pairNo);
       
-     assert(colorCode_Data.minorColorCode == cabelData[cablePairIndex]->minorColorCode);  
+     assert(colorCode_Data.minorColorCode == cabelData->minorColorCode);  
   }
 }
 
