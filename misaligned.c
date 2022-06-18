@@ -49,7 +49,6 @@ void testMinor_CableColorCode(cableReferenceManual *const cableData)
 
 int main() {
     int cablePairIndex = 0;
-    cableReferenceManual colorCode_testData;
     int result = printColorMap();
     //assert(result == 24);
     
