@@ -12,6 +12,6 @@ struct cableReferenceManual
   enum MinorColor minorColorCode;
 };
 
-void testCableColorCode(cableReferenceManual const cabelData);
+void testCableColorCode(cableReferenceManual *const cabelData);
 cableReferenceManual GetColorCodeFromPairNumber(int pairNumber);
 int GetPairNumberFromColorCode(const cableReferenceManual* colorCode);
