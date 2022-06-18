@@ -23,7 +23,7 @@ int printColorMap() {
 int main() {
     int result = printColorMap();
     assert(result == 24);
-    testCableColorCode(&testCable_RefManualData_s);
+    testCableColorCode(testCable_RefManualData_s);
     printf("All is well (maybe!)\n");
     return 0;
 }
