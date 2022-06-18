@@ -15,7 +15,7 @@ int GetPairNumberFromColorCode(const cableReferenceManual* colorCode) {
     return colorCode->majorColorCode * numberOfMinorColors + colorCode->minorColorCode + 1;
 }
 
-void testCableColorCode_from(cableReferenceManual *const cabelData)
+void testCableColorCode_from(cableReferenceManual const cabelData)
 {
   int cablePairIndex = 0;
   cableReferenceManual colorCode_Data;
