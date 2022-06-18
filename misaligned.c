@@ -2,6 +2,8 @@
 #include <assert.h>
 #include "cableColorCode_misaligned.h"
 
+cableReferenceManual testCable_RefManualData_s[25];
+
 int printColorMap() {
     const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
     const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
