@@ -18,12 +18,12 @@ int getColorMap() {
         for(minorColors_Index = 0; minorColors_Index < numberOfMinorColors; minorColors_Index++) 
         {
             testCable_RefManualData_s[cablePairIndex].pairNo = majorColors_Index * 5 + minorColors_Index;
-            testCable_RefManualData_s[cablePairIndex].majorColorCode = (enum MajorColor)i;
-            testCable_RefManualData_s[cablePairIndex].minorColorCode = (enum MinorColor)i;
+            testCable_RefManualData_s[cablePairIndex].majorColorCode = (enum MajorColor)majorColors_Index;
+            testCable_RefManualData_s[cablePairIndex].minorColorCode = (enum MinorColor)majorColors_Index;
             ++cablePairIndex;
         }
     }
-    return i * j;
+    return majorColors_Index * minorColors_Index;
 }
 
 void printColorMap()
@@ -31,7 +31,7 @@ void printColorMap()
     int majorColors_Index = 0, minorColors_Index = 0;
     for(majorColors_Index = 0; majorColors_Index < numberOfMajorColors; majorColors_Index++) {
         for(minorColors_Index = 0; minorColors_Index < numberOfMinorColors; minorColors_Index++) {
-    printf("%d | %s | %s\n", i * 5 + j, majorColor[i], minorColor[i]);
+    printf("%d | %s | %s\n", majorColors_Index * 5 + minorColors_Index, majorColor[majorColors_Index], minorColor[majorColors_Index]);
         }
     }
     printf("All is well (maybe!)\n");
