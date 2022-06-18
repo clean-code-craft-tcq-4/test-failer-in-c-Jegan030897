@@ -36,26 +36,27 @@ int GetPairNumberFromColorCode(const cableReferenceManual* colorCode) {
     return colorCode->majorColorCode * numberOfMinorColors + colorCode->minorColorCode + 1;
 }
 
-void testCableColorCode(cableReferenceManual *const cabelData)
+cableReferenceManual testMinor_CableColorCode(cableReferenceManual *const cableData)
 {
   cableReferenceManual colorCode_Data;
     
-  if((cabelData->pairNo > 0) && (cabelData->pairNo <= 25))
+  if((cableData->pairNo > 0) && (cableData->pairNo <= 25))
   {
-     colorCode_Data = GetColorCodeFromPairNumber(cabelData->pairNo);
-     assert(colorCode_Data.majorColorCode == 0); 
-     assert(colorCode_Data.minorColorCode == cabelData->minorColorCode);  
+     colorCode_Data = GetColorCodeFromPairNumber(cableData->pairNo);
   }
+  return colorCode_Data;
 }
 
 int main() {
     int cablePairIndex = 0;
+    cableReferenceManual colorCode_testData;
     int result = printColorMap();
     assert(result == 24);
     
     for(cablePairIndex = 0; cablePairIndex < 25; cablePairIndex++)
     {
-        testCableColorCode(&testCable_RefManualData_s[cablePairIndex]);
+        colorCode_testData = testMinor_CableColorCode(&testCable_RefManualData_s[cablePairIndex]);
+        assert(colorCode_testData.minorColorCode == testCable_RefManualData_s[cablePairIndex].minorColorCode);  
     }
     printf("All is well (maybe!)\n");
     return 0;
