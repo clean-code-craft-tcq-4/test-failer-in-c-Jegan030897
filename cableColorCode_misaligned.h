@@ -9,3 +9,4 @@ struct cableReferenceManual
   enum MajorColor majorColorCode;
   enum MinorColor minorColorCode;
 };
+
