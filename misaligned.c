@@ -48,7 +48,7 @@ void testMinor_CableColorCode(cableReferenceManual *const cableData)
   }
   else if(cableData->pairNo == 0)
   {
-      assert(0 == cableData->pairNo);
+      assert(cableData->pairNo == 1);
   }
 }
 
