@@ -19,7 +19,7 @@ int getColorMap() {
         {
             testCable_RefManualData_s[cablePairIndex].pairNo = majorColors_Index * 5 + minorColors_Index;
             testCable_RefManualData_s[cablePairIndex].majorColorCode = (enum MajorColor)majorColors_Index;
-            testCable_RefManualData_s[cablePairIndex].minorColorCode = (enum MinorColor)majorColors_Index;
+            testCable_RefManualData_s[cablePairIndex].minorColorCode = (enum MinorColor)minorColors_Index;
             ++cablePairIndex;
         }
     }
@@ -31,7 +31,7 @@ void printColorMap()
     int majorColors_Index = 0, minorColors_Index = 0;
     for(majorColors_Index = 0; majorColors_Index < numberOfMajorColors; majorColors_Index++) {
         for(minorColors_Index = 0; minorColors_Index < numberOfMinorColors; minorColors_Index++) {
-    printf("%d | %s | %s\n", majorColors_Index * 5 + minorColors_Index, majorColor[majorColors_Index], minorColor[majorColors_Index]);
+    printf("%d | %s | %s\n", majorColors_Index * 5 + minorColors_Index, majorColor[majorColors_Index], minorColor[minorColors_Index]);
         }
     }
     printf("All is well (maybe!)\n");
@@ -55,7 +55,7 @@ void testMinor_CableColorCode(cableReferenceManual *const cableData)
     
      assert(colorCode_Data.minorColorCode == cableData->minorColorCode); 
   }
-  else if(cableData->pairNo == 0)
+  else if(cableData->pairNo == 1)
   {
       assert(cableData->pairNo == 1);
   }
