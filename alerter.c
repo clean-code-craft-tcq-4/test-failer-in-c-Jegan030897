@@ -1,8 +1,13 @@
 #include <stdio.h>
 #include <assert.h>
 
+#define STD_ON   1
+#define STD_OFF  0
+#define ENABLE_PRODUCTION_CODE  STD_OFF
+
 int alertFailureCount = 0;
 
+#if(ENABLE_PRODUCTION_CODE == STD_OFF)
 int networkAlertStub(float celcius) {
     printf("ALERT: Temperature is %.1f celcius.\n", celcius);
     // Return 200 for ok
@@ -10,10 +15,16 @@ int networkAlertStub(float celcius) {
     // stub always succeeds and returns 200
     return 200;
 }
+#endif
 
 void alertInCelcius(float farenheit) {
     float celcius = (farenheit - 32) * 5 / 9;
+    
+    #if(ENABLE_PRODUCTION_CODE == STD_OFF)
     int returnCode = networkAlertStub(celcius);
+    assert(celcius < returnCode);
+    #endif
+    
     if (returnCode != 200) {
         // non-ok response is not an error! Issues happen in life!
         // let us keep a count of failures to report
